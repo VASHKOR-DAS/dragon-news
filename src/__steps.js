@@ -12,3 +12,15 @@
 
 
 /**Router Setup */
+
+
+/**
+ * Backend
+ * 
+ * create a server folder
+ * npm init -y
+ * create a file index.js
+ * npm install express
+ * npm install -g nodmon
+ * npm i cros
+ */
