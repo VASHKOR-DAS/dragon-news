@@ -17,11 +17,13 @@ export const routes = createBrowserRouter([
             {
                 path: '/category/:id',
                 element: <Category></Category>,
-                loader: ({params}) => fetch(`http://localhost:5000/category/${params.id}`) //${params.id} means uporer jei id ta dynamically (/category/:id) dilam seta
+                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`) //${params.id} means uporer jei id ta dynamically (/category/:id) dilam seta
             },
             {
                 path: '/news/:id',
-                element: <News></News>
+                element: <News></News>,
+                loader: ({ params }) => fetch(`http://localhost:5000/news/${params.id}`)
+
             }
         ]
     }
