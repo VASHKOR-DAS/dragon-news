@@ -1,16 +1,31 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, ButtonGroup } from 'react-bootstrap';
 import { FaDiscord, FaFacebook, FaGithub, FaGoogle, FaRulerHorizontal, FaServer, FaTwitter, FaWhatsapp, FaYoutube } from "react-icons/fa";
 import { } from "react-icons/fc";
 import ListGroup from 'react-bootstrap/ListGroup';
 import BrandCarousel from '../BrandCarousel/BrandCarousel';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const RightSideNav = () => {
+
+    const { signInWithGoogle } = useContext(AuthContext);
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => {
+                console.error(error);
+            })
+    }
+
     return (
         <div className='mt-3 mt-lg-0'>
             <ListGroup>
                 <ButtonGroup vertical>
-                    <Button variant="outline-primary mb-2"><FaGoogle /> Login via Google</Button>
+                    <Button onClick={handleGoogleSignIn} variant="outline-primary mb-2"><FaGoogle /> Login via Google</Button>
                     <Button variant="outline-dark mb-3"> <FaGithub /> Login via Github</Button>
                 </ButtonGroup>
             </ListGroup>
