@@ -7,7 +7,7 @@ import BrandCarousel from '../BrandCarousel/BrandCarousel';
 
 const RightSideNav = () => {
     return (
-        <div>
+        <div className='mt-3 mt-lg-0'>
             <ListGroup>
                 <ButtonGroup vertical>
                     <Button variant="outline-primary mb-2"><FaGoogle /> Login via Google</Button>
