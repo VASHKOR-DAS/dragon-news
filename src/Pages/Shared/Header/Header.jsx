@@ -50,7 +50,7 @@ const Header = () => {
                                 </>
                                 :
                                 <>
-                                    <Nav.Link><FaUser /></Nav.Link>
+                                    <Nav.Link href='/profile'><FaUser /></Nav.Link>
                                     <Nav.Link href='/login'><Button variant="primary" size="sm">Login</Button></Nav.Link>
                                     <Nav.Link href='/signup'><Button variant="outline-success" size="sm">Sign Up</Button></Nav.Link>
                                 </>
