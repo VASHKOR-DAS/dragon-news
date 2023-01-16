@@ -8,7 +8,7 @@ const SignUp = () => {
     const [accepted, setAcepted] = useState(false);
 
 
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUserProfile } = useContext(AuthContext);
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -25,11 +25,22 @@ const SignUp = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
+                handleUpdateUserProfile(name, photoURL);
                 // navigate('/login');
             })
             .catch(error => {
                 console.error('error', error);
             })
+    }
+
+    const handleUpdateUserProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updateUserProfile(profile)
+            .then(() => { })
+            .catch(error => console.error(error));
     }
 
     const handleAccepted = (event) => {
