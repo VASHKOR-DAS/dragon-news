@@ -9,7 +9,7 @@ import { FaEye, FaRegBookmark, FaShareAlt, FaStar } from "react-icons/fa";
  * props.news o korte partam */
 const NewsSummaryCard = ({ news }) => {
     const { _id, title, author, details, image_url, total_view, rating } = news;
-    console.log(news);
+    // console.log(news);
 
 
     return (
@@ -37,11 +37,11 @@ const NewsSummaryCard = ({ news }) => {
                 <Card.Text>
                     {
                         details.length > 250 ?
-                            <p>
+                            <>
                                 {details.slice(0, 250) + '...'}
                                 <Link to={`/news/${_id}`}>Read More</Link>
-                            </p>
-                            : <p>{details}</p>
+                            </>
+                            : details
                     }
                 </Card.Text>
             </Card.Body>

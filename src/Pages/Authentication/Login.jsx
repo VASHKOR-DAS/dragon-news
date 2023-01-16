@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { toast } from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
@@ -10,6 +10,21 @@ const Login = () => {
     const { signIn } = useContext(AuthContext);
 
     const navigate = useNavigate();
+
+
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/'
+
+
+
+
+
+
+
+
+
+
+
 
     const handleLogIn = (event) => {
         event.preventDefault();
@@ -27,8 +42,8 @@ const Login = () => {
                 form.reset();
 
                 //user email verify na korle login korte dibo na
-                if (user.verifyEmail) {
-                    navigate('/');
+                if (user.emailVerified) {
+                    navigate(from, { replace: true });
                 }
                 else {
                     toast.error('Email not verified.')
