@@ -17,33 +17,33 @@ export const routes = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/news')
+                loader: () => fetch('https://dragon-news-server-eight-rust.vercel.app/news')
             },
             {
                 path: '/category/:id',
                 element: <Category></Category>,
-                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`) //${params.id} means uporer jei id ta dynamically (/category/:id) dilam seta
+                loader: ({ params }) => fetch(`https://dragon-news-server-eight-rust.vercel.app/category/${params.id}`) //${params.id} means uporer jei id ta dynamically (/category/:id) dilam seta
             },
             {
                 path: '/news/:id',
                 element: <PrivateRoute><News></News></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/news/${params.id}`)
+                loader: ({ params }) => fetch(`https://dragon-news-server-eight-rust.vercel.app/news/${params.id}`)
 
             },
             {
-                path:'/login',
+                path: '/login',
                 element: <Login></Login>
             },
             {
-                path:'/signup',
+                path: '/signup',
                 element: <SignUp></SignUp>
             },
             {
-                path:'/terms',
+                path: '/terms',
                 element: <Terms></Terms>
             },
             {
-                path:'/profile',
+                path: '/profile',
                 element: <PrivateRoute><Profile></Profile></PrivateRoute>
             }
         ]
