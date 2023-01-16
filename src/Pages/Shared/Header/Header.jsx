@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Image } from 'react-bootstrap';
+import { Button, Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -10,7 +10,13 @@ import LeftSideNav from '../LeftSideNav/LeftSideNav';
 
 const Header = () => {
 
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error));
+    }
 
     return (
         <Navbar collapseOnSelect className='mb-4' expand="lg" bg="light" variant="light">
@@ -34,14 +40,21 @@ const Header = () => {
                     </Nav>
 
                     <Nav>
-                        <Nav.Link href="#deets">{user?.displayName}</Nav.Link>
-                        <Nav.Link eventKey={2} href="#memes">
-                            {
-                                user?.photoURL ?
-                                    <Image height={30} roundedCircle src={user?.photoURL}></Image>
-                                    : <FaUser />
-                            }
-                        </Nav.Link>
+                        {
+                            (user?.email && user?.uid)
+                                ?
+                                <>
+                                    <Nav.Link>{user?.displayName}</Nav.Link>
+                                    <Nav.Link><Image height={30} roundedCircle src={user?.photoURL}></Image></Nav.Link>
+                                    <Nav.Link><Button onClick={handleLogOut} variant="primary" size="sm">Log Out</Button></Nav.Link>
+                                </>
+                                :
+                                <>
+                                    <Nav.Link><FaUser /></Nav.Link>
+                                    <Nav.Link href='/login'><Button variant="primary" size="sm">Login</Button></Nav.Link>
+                                    <Nav.Link href='/signup'><Button variant="outline-success" size="sm">Sign Up</Button></Nav.Link>
+                                </>
+                        }
                     </Nav>
                 </Navbar.Collapse>
             </Container>
