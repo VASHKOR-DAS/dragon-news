@@ -1,11 +1,15 @@
 import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
 
     const { signIn } = useContext(AuthContext);
+
+    const navigate = useNavigate();
 
     const handleLogIn = (event) => {
         event.preventDefault();
@@ -21,8 +25,14 @@ const Login = () => {
                 console.log('signIn user', user);
                 // reset from after login
                 form.reset();
-                //user successfully login hoye gele take / route a niye jabe
-                // navigate(from, { replace: true });
+
+                //user email verify na korle login korte dibo na
+                if (user.verifyEmail) {
+                    navigate('/');
+                }
+                else {
+                    toast.error('Email not verified.')
+                }
             })
             .catch(error => {
                 console.error(error);

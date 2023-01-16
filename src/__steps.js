@@ -8,6 +8,10 @@
  * install firebase react-router-dom
  * npm install react-bootstrap bootstrap
  *  src/index.js or App.js file to import 'bootstrap/dist/css/bootstrap.min.css';
+ * 
+ * REACT HOT TOAST
+ * npm install react-hot-toast
+ * set <Toster></Toster> on App.js
  */
 
 
