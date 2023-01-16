@@ -7,7 +7,7 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
 
-    const { signIn } = useContext(AuthContext);
+    const { signIn, setLoading } = useContext(AuthContext);
 
     const navigate = useNavigate();
 
@@ -51,6 +51,11 @@ const Login = () => {
             })
             .catch(error => {
                 console.error(error);
+            })
+
+            //Email verified na hole PrivateRoute a gele loading... ta theke jay, seta remove korar jnno
+            .finally(() => {
+                setLoading(false);
             })
 
 
