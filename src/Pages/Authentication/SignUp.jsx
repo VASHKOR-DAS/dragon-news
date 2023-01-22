@@ -3,8 +3,11 @@ import { Button, Form } from 'react-bootstrap';
 import { toast } from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 const SignUp = () => {
+
+    useTitle('Sign Up');
 
     const [accepted, setAcepted] = useState(false);
 

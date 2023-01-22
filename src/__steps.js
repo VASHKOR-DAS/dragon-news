@@ -25,6 +25,10 @@
  * npm init -y
  * create a file index.js
  * npm install express
- * npm install -g nodmon
+ * npm install -g nodemon
  * npm i cros
+ */
+
+/**
+ * set fevicon.icon
  */

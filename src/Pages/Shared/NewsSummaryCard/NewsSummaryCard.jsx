@@ -3,11 +3,15 @@ import { Image } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import { FaEye, FaRegBookmark, FaShareAlt, FaStar } from "react-icons/fa";
+import useTitle from '../../../hooks/useTitle';
 
 /** home components theke news name a 1ti object pathano hoise ta amra akhane {news} parameter name a receive korlam 
  * ata amra ager niom like (props) parameter name a o receive kore use krr smy 
  * props.news o korte partam */
 const NewsSummaryCard = ({ news }) => {
+
+    useTitle('Category');
+
     const { _id, title, author, details, image_url, total_view, rating } = news;
     // console.log(news);
 

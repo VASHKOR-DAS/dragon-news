@@ -3,8 +3,12 @@ import { Link, useLoaderData } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { FaStar } from 'react-icons/fa';
+import useTitle from '../../../hooks/useTitle';
 
 const News = () => {
+
+    useTitle('News');
+
     const news = useLoaderData(); // backend theke route hisebe pathalam news
     // console.log(news);
     // Read More a click korle ai component ta show hobe
